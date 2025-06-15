@@ -1,0 +1,277 @@
+/* -----------------------------
+   FONT & RESET
+----------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+html {
+  scroll-behavior: smooth;
+  background: #0a0a0a;
+  color: #eaeaea;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+}
+ 
+/* -----------------------------
+   GLOBALS
+----------------------------- */
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+ 
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+ 
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: #00ffe0;
+  transition: width 0.3s ease;
+}
+ 
+a:hover::after {
+  width: 100%;
+}
+ 
+/* -----------------------------
+   HEADER
+----------------------------- */
+.header {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.header.scrolled {
+  background: #0a0a0a;
+  box-shadow: 0 0 10px rgba(0, 255, 224, 0.08);
+}
+ 
+.logo {
+  font-weight: bold;
+  font-size:1.4rem;
+  letter-spacing: 2px;
+  color: #c4c4c4;
+  user-select: none;
+}
+ 
+.logo-main {
+  font-size: 1.6rem;
+  display: block;
+}
+ 
+.logo-sub {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  margin-top: -6px; 
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+ 
+.sub-logo{
+  font-size:0.75rem;
+}
+ 
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+ 
+/* -----------------------------
+   HERO SECTION
+----------------------------- */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  background: #0a0a0a;
+}
+ 
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+ 
+.hero-title.glitch {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: #fff; }
+ 
+.hero-title.glitch span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  color: #fff;
+  text-shadow: none;
+  animation: flicker 3s infinite ease-in-out alternate;
+}
+ 
+@keyframes flicker {
+  0%, 100% {
+    transform: rotate(0deg) skew(0deg, 0deg);
+  }
+  30% {
+    transform: rotate(-4deg) skew(-2deg, 1deg);
+  }
+  60% {
+    transform: rotate(3deg) skew(1deg, -2deg);
+  }
+  90% {
+    transform: rotate(-2deg) skew(0deg, 1deg);
+  }
+}
+ 
+.hero-title.glitch span:hover {
+  transform: scale(1.2) rotate(8deg) skew(5deg, -5deg);
+  color: #ffffff;
+}
+ 
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #c4c4c4;
+  opacity: 0.8;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+ 
+/* -----------------------------
+   SECTIONS
+----------------------------- */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+ 
+.section-heading {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #c4c4c4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+ 
+/* -----------------------------
+   SOLUTIONS GRID
+----------------------------- */
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+ 
+.card {
+  background: #111;
+  padding: 2rem;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px Rgba(255, 255, 255, 1);
+}
+ 
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+ 
+.card p {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+ 
+/* -----------------------------
+   MISSION
+----------------------------- */
+.mission-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #c2c2c2;
+  line-height: 1.8;
+}
+ 
+/* -----------------------------
+   CONTACT FORM
+----------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+ 
+input,
+textarea {
+  background: #0f0f0f;
+  color: #eaeaea;
+  border: 1px solid #1e1e1e;
+  padding: 1rem;
+  font-size: 1rem;
+}
+ 
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+ 
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+/* -----------------------------
+   PARTICLE CANVAS BACKGROUND
+----------------------------- */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
